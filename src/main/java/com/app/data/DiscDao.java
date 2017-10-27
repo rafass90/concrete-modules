@@ -2,12 +2,14 @@ package com.app.data;
 
 import com.app.bean.Disc;
 
+import java.util.List;
+
 public interface DiscDao {
 
-    public void addDisc(Disc disc);
+    public Long addDisc(Disc disc);
 
     public void removeDisc(Disc disc);
 
 
-    public Disc findDiscByAuthor(String author);
+    public List<Disc> findDiscByAuthor(String author);
 }

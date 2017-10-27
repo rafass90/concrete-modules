@@ -5,13 +5,14 @@ import com.app.bean.Disc;
 
 public class StoreService {
 
-    public Long insertBook(Book book){
+    public StoreService(){
+    }
 
+    public Long insertBook(Book book){
         return 1L;
     }
 
     public Long insertDisc(Disc disc){
-
         return 1L;
     }
 
