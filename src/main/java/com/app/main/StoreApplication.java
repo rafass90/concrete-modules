@@ -12,12 +12,13 @@ public class StoreApplication {
                     "\n2 - Adicionar cliente" +
                     "\n3 - Adicionar livro" +
                     "\n4 - Adicionar disco" +
+                    "\n5 - Vender" +
                     "\n0 - Para sair");
 
             Scanner scanner = new Scanner(System.in);
             i = scanner.nextInt();
 
-            switch (i){
+            switch (i) {
                 case (1):
                     addProduto();
                     break;
@@ -30,51 +31,24 @@ public class StoreApplication {
                 case (4):
                     addDisc();
                     break;
+                case (5):
+                    sell();
+                    break;
                 default:
                     System.out.println("Valor inválido");
                     break;
-
-<<<<<<< HEAD
-        try {
-            System.out.println("Encerrando execução do programa");
-            Thread.sleep (1000L);
-            System.out.println("Programa encerrado");
-        } catch (InterruptedException e) {
-            e.printStackTrace ();
-        }
-=======
             }
-        }while(i != 0);
+        }while (i != 0) ;
 
->>>>>>> b7cc44cd332f12b2e793de49bec64b89d3a30dde
 
         System.out.println("Encerrando execução do programa");
-        Thread.sleep (1000L);
+        Thread.sleep(1000L);
         System.out.println("Programa encerrado");
     }
 
-    private static void execSell () {
-<<<<<<< HEAD
-        System.out.println("-- Produto -- \n" +
-                "1 - Para adicionar um livro" +
-                "2 - Para adicionar um disco");
-
-        Scanner scanner = new Scanner(System.in);
-        if(scanner.nextInt () == 1)
-            addBook();
-        else
-            addDisc();
-    }
 
     private static void addDisc () {
-
-=======
         System.out.println("\nValor inválido\n");
-    }
-
-    private static void addDisc () {
-        System.out.println("\nAdicionando disco\n");
->>>>>>> b7cc44cd332f12b2e793de49bec64b89d3a30dde
     }
 
     private static void addBook () {
@@ -87,5 +61,17 @@ public class StoreApplication {
 
     private static void addProduto () {
         System.out.println("\nAdicionando produto\n");
+    }
+
+    private static void sell() {
+        System.out.println("\nVenda\n");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("cliente: ");
+        int client = scanner.nextInt();
+
+        System.out.println("\nproduto: ");
+        int prod = scanner.nextInt();
+
+        //TODO vender
     }
 }
