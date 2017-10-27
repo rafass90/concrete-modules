@@ -14,5 +14,4 @@ public class StoreOracleDaoImpl implements StoreDao {
         return 1L;
     }
 
-
 }

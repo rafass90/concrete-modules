@@ -6,7 +6,6 @@ public interface DiscDao {
 
     public void addDisc(Disc disc);
 
-
     public void removeDisc(Disc disc);
 
 
