@@ -1,20 +1,23 @@
 package com.app.main;
 
-import java.io.Console;
 import java.util.Scanner;
 
 public class StoreApplication {
-    public static void main (String[] args) {
-
-        System.out.println("Menu: " +
-                "1 - Adicionar produto" +
-                "2 - Adicionar cliente");
-
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextInt();
+    public static void main (String[] args) throws InterruptedException {
+        int i = 99;
 
         do {
-            switch (scanner.nextInt ()){
+            System.out.println("Menu: " +
+                    "\n1 - Adicionar produto" +
+                    "\n2 - Adicionar cliente" +
+                    "\n3 - Adicionar livro" +
+                    "\n4 - Adicionar disco" +
+                    "\n0 - Para sair");
+
+            Scanner scanner = new Scanner(System.in);
+            i = scanner.nextInt();
+
+            switch (i){
                 case (1):
                     addProduto();
                     break;
@@ -22,47 +25,41 @@ public class StoreApplication {
                     addClient();
                     break;
                 case (3):
-                    execSell();
+                    addBook();
                     break;
+                case (4):
+                    addDisc();
+                    break;
+                default:
+                    System.out.println("Valor inválido");
+                    break;
+
             }
-        }while(scanner.nextInt() != 0);
+        }while(i != 0);
 
 
-        try {
-            System.out.println("Encerrando execução do programa");
-            Thread.sleep (1000L);
-            System.out.println("Programa encerrado");
-        } catch (InterruptedException e) {
-            e.printStackTrace ();
-        }
-
+        System.out.println("Encerrando execução do programa");
+        Thread.sleep (1000L);
+        System.out.println("Programa encerrado");
     }
 
     private static void execSell () {
-        int
-        System.out.println("-- Produto -- \n" +
-                "1 - Para adicionar um livro" +
-                "2 - Para adicionar um disco");
-
-        Scanner scanner = new Scanner(System.in);
-        if(scanner.nextInt () == 1)
-            addBook();
-        else
-            addDisc();
+        System.out.println("\nValor inválido\n");
     }
 
     private static void addDisc () {
-        
+        System.out.println("\nAdicionando disco\n");
     }
 
     private static void addBook () {
+        System.out.println("\nAdicionando livro\n");
     }
 
     private static void addClient () {
-
+        System.out.println("\nAdicionando cliente\n");
     }
 
     private static void addProduto () {
-
+        System.out.println("\nAdicionando produto\n");
     }
 }
