@@ -1,6 +1,5 @@
 package com.app.main;
 
-import java.io.Console;
 import java.util.Scanner;
 
 public class StoreApplication {
@@ -27,7 +26,6 @@ public class StoreApplication {
             }
         }while(scanner.nextInt() != 0);
 
-
         try {
             System.out.println("Encerrando execução do programa");
             Thread.sleep (1000L);
@@ -39,7 +37,6 @@ public class StoreApplication {
     }
 
     private static void execSell () {
-        int
         System.out.println("-- Produto -- \n" +
                 "1 - Para adicionar um livro" +
                 "2 - Para adicionar um disco");
@@ -52,7 +49,7 @@ public class StoreApplication {
     }
 
     private static void addDisc () {
-        
+
     }
 
     private static void addBook () {
