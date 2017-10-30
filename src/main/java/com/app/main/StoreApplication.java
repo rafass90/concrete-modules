@@ -1,37 +1,77 @@
 package com.app.main;
 
-import com.app.bean.Book;
-import com.app.bean.Consumer;
-import com.app.bean.Disc;
-import com.app.service.ConsumerService;
-import com.app.service.StoreService;
-
-import java.util.List;
+import java.util.Scanner;
 
 public class StoreApplication {
-    public static void main (String[] args) throws Exception {
+    public static void main (String[] args) throws InterruptedException {
+        int i = 99;
 
-        Consumer consumer = new Consumer ("Teste", 27);
-        consumer.setId (999L);
+        do {
+            System.out.println("Menu: " +
+                    "\n1 - Adicionar produto" +
+                    "\n2 - Adicionar cliente" +
+                    "\n3 - Adicionar livro" +
+                    "\n4 - Adicionar disco" +
+                    "\n5 - Vender" +
+                    "\n0 - Para sair");
 
-        Disc d = new Disc ("Disco 1","Kubinho", 4.3d, Disc.Type.CD);
+            Scanner scanner = new Scanner(System.in);
+            i = scanner.nextInt();
 
-        ConsumerService c = new ConsumerService ();
-        c.insertSale (consumer, List.of(d));
+            switch (i) {
+                case (1):
+                    addProduto();
+                    break;
+                case (2):
+                    addClient();
+                    break;
+                case (3):
+                    addBook();
+                    break;
+                case (4):
+                    addDisc();
+                    break;
+                case (5):
+                    sell();
+                    break;
+                default:
+                    System.out.println("Valor inválido");
+                    break;
+            }
+        }while (i != 0) ;
 
-        System.out.println (c.listAllConsumers ());
 
-        Book book1 = new Book("A volta dos que não foram", 2, 140.3d);
-        Book book2 = new Book("Java 9 - Modules", 140, 29.99d);
+        System.out.println("Encerrando execução do programa");
+        Thread.sleep(1000L);
+        System.out.println("Programa encerrado");
+    }
 
-        StoreService storeService = new StoreService ();
-        storeService.insertBook (book1);
-        storeService.insertBook (book2);
 
-        c.insertSale (consumer, List.of(book1,book2));
+    private static void addDisc () {
+        System.out.println("\nValor inválido\n");
+    }
 
-        System.out.println (c.listAllConsumers ());
+    private static void addBook () {
+        System.out.println("\nAdicionando livro\n");
+    }
 
-//        storeService.
+    private static void addClient () {
+        System.out.println("\nAdicionando cliente\n");
+    }
+
+    private static void addProduto () {
+        System.out.println("\nAdicionando produto\n");
+    }
+
+    private static void sell() {
+        System.out.println("\nVenda\n");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("cliente: ");
+        int client = scanner.nextInt();
+
+        System.out.println("\nproduto: ");
+        int prod = scanner.nextInt();
+
+        //TODO vender
     }
 }
