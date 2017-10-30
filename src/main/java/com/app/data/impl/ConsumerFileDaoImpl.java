@@ -1,6 +1,7 @@
 package com.app.data.impl;
 
 import com.app.bean.Consumer;
+import com.app.bean.Sale;
 import com.app.data.ConsumerDao;
 import com.app.data.database.FileDatabase;
 
@@ -24,7 +25,12 @@ public class ConsumerFileDaoImpl implements ConsumerDao {
 
     @Override
     public Consumer getConsumerById (Long id) {
-        return null;
+        return file.returnAll (tableName)
+                .stream ()
+                .filter(Consumer.class::isInstance)
+                .map(Consumer.class::cast)
+                .filter (c -> c.getId () == id)
+                .findAny ().get ();
     }
 
     @Override
@@ -35,4 +41,5 @@ public class ConsumerFileDaoImpl implements ConsumerDao {
                 .map(Consumer.class::cast)
                 .collect (Collectors.toList ());
     }
+
 }

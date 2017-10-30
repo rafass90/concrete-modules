@@ -40,4 +40,14 @@ public class ConsumerService {
         ConsumerDao consumerDao = new ConsumerFileDaoImpl ();
         return consumerDao.findAllConsumers ();
     }
+
+    public Consumer findConsumer(Long id){
+        ConsumerDao consumerDao = new ConsumerFileDaoImpl ();
+        return consumerDao.getConsumerById (id);
+    }
+
+    public List<Sale> listSales () {
+        SaleDao saleDao = new SaleFileDaoImpl ();
+        return saleDao.findAllSales();
+    }
 }

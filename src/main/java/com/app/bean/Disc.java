@@ -3,12 +3,12 @@ package com.app.bean;
 public class Disc implements IProduct {
 
     public Double getValue () {
-        return price;
+        return value;
     }
 
     public enum Type {
         CD,
-        DVD;
+        DVD, OUTROS;
     }
 
     private Long id;
@@ -17,14 +17,14 @@ public class Disc implements IProduct {
 
     private String name;
 
-    private Double price;
+    private Double value;
 
     private Type type;
 
-    public Disc (String singer, String name, Double price, Type type) {
+    public Disc (String singer, String name, Double value, Type type) {
         this.singer = singer;
         this.name = name;
-        this.price = price;
+        this.value = value;
         this.type = type;
     }
 
@@ -44,12 +44,11 @@ public class Disc implements IProduct {
         return name;
     }
 
-    public Double getPrice () {
-        return price;
-    }
-
     public Type getType () {
         return type;
     }
 
+    public String toString(){
+        return "\nID: " + getId () + " " + getType () + "\n " + getSinger () + " " + getName () + "\n Price: $" + getValue () + "\n";
+    }
 }

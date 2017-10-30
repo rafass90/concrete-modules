@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class BookFileDaoImpl implements BookDao {
 
     private FileDatabase file;
-    private static final String tableName = "DISC";
+    private static final String tableName = "BOOK";
 
     public BookFileDaoImpl(){
         file = FileDatabase.getInstance ().createDatabase(tableName);

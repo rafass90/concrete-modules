@@ -9,6 +9,7 @@ import com.app.data.impl.BookFileDaoImpl;
 import com.app.data.impl.DiscFileDaoImpl;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,11 +31,11 @@ public class StoreService {
     public List<IProduct> listAllProducts(){
         DiscDao discDao = new DiscFileDaoImpl ();
         BookDao bookDao = new BookFileDaoImpl ();
-        IProduct p1 = (IProduct) bookDao.listAll ();
-        IProduct p2 = (IProduct) discDao.listAll ();
+        List p1 =  bookDao.listAll ();
+        List p2 =  discDao.listAll ();
 
-        return Stream.of (p1, p2)
-                .collect (Collectors.toList ());
+        p1.addAll (p2);
+        return p1;
     }
 
     public List<Book> listAllBooks(){

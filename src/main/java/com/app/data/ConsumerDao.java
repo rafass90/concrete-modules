@@ -1,6 +1,7 @@
 package com.app.data;
 
 import com.app.bean.Consumer;
+import com.app.bean.Sale;
 
 import java.util.List;
 

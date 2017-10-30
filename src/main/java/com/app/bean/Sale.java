@@ -69,4 +69,9 @@ public class Sale {
     public void setValue (Double value) {
         this.value = value;
     }
+
+    public String toString(){
+        return "Cliente: " + getConsumerId ()
+                + "\n Valo da venda: $" +  getValue ();
+    }
 }

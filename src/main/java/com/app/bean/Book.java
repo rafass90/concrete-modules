@@ -35,4 +35,8 @@ public class Book implements IProduct{
     public Double getValue () {
         return price;
     }
+
+    public String toString(){
+        return "\nID: " + getId () + "\n " + getName () + "\n Price: $" + getValue () + "\n";
+    }
 }
