@@ -10,10 +10,15 @@ import java.util.stream.Collectors;
 public class DiscFileDaoImpl implements DiscDao{
 
     private FileDatabase database;
+    private static final String tableName = "DISC";
+
+    public DiscFileDaoImpl(){
+        database = FileDatabase.getInstance ().createDatabase (tableName);
+    }
 
     public Long addDisc (Disc disc) {
-        disc.setId (Long.valueOf (database.getIncrement ()));
-        database.add (disc.getId (), disc);
+        disc.setId (Long.valueOf (database.getIncrement (tableName)));
+        database.add (tableName, disc.getId (), disc);
         return disc.getId ();
     }
 
@@ -21,8 +26,15 @@ public class DiscFileDaoImpl implements DiscDao{
 
     }
 
+    @Override
+    public List<Disc> listAll () {
+        return database.returnAll (tableName).stream ()
+                .map(Disc.class::cast)
+                .collect(Collectors.toList());
+    }
+
     public List<Disc> findDiscByAuthor (String author) {
-        return database.returnAll ().stream ()
+        return database.returnAll (tableName).stream ()
                 .filter(Disc.class::isInstance)
                 .map(Disc.class::cast)
                 .filter(d -> d.getSinger ().equals(author))

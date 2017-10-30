@@ -16,8 +16,8 @@ public class Sale {
     private LocalDate date;
 
     public Sale(Long consumerId, List<IProduct> products){
-        consumerId = consumerId;
-        products = products;
+        this.consumerId = consumerId;
+        this.products = products;
         calculateValue();
         insertDate();
     }

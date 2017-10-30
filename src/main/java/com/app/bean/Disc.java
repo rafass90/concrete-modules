@@ -1,12 +1,12 @@
 package com.app.bean;
 
-public class Disc implements IProduct{
+public class Disc implements IProduct {
 
     public Double getValue () {
         return price;
     }
 
-    enum Type{
+    public enum Type {
         CD,
         DVD;
     }
@@ -21,6 +21,13 @@ public class Disc implements IProduct{
 
     private Type type;
 
+    public Disc (String singer, String name, Double price, Type type) {
+        this.singer = singer;
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
+
     public Long getId () {
         return id;
     }
@@ -33,31 +40,16 @@ public class Disc implements IProduct{
         return singer;
     }
 
-    public void setSinger (String singer) {
-        this.singer = singer;
-    }
-
     public String getName () {
         return name;
-    }
-
-    public void setName (String name) {
-        this.name = name;
     }
 
     public Double getPrice () {
         return price;
     }
 
-    public void setPrice (Double price) {
-        this.price = price;
-    }
-
     public Type getType () {
         return type;
     }
 
-    public void setType (Type type) {
-        this.type = type;
-    }
 }

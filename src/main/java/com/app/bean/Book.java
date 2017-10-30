@@ -10,6 +10,12 @@ public class Book implements IProduct{
 
     private Double price;
 
+    public Book(String name, int pages, Double price){
+        this.name = name;
+        this.pages = pages;
+        this.price = price;
+    }
+
     public Long getId () {
         return id;
     }
@@ -22,16 +28,8 @@ public class Book implements IProduct{
         return name;
     }
 
-    public void setName (String name) {
-        this.name = name;
-    }
-
     public int getPages () {
         return pages;
-    }
-
-    public void setPages (int pages) {
-        this.pages = pages;
     }
 
     public Double getValue () {

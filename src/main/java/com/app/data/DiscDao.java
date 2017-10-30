@@ -10,6 +10,7 @@ public interface DiscDao {
 
     public void removeDisc(Disc disc);
 
+    public List<Disc> listAll();
 
     public List<Disc> findDiscByAuthor(String author);
 }

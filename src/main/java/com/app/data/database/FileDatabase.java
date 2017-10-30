@@ -19,21 +19,29 @@ public class FileDatabase {
         return instance;
     }
 
-    private Map<Long, Object> map;
+    private Map<String,Map<Long, Object>> map;
 
-    public void add(Long id, Object data){
-        map.put (id, data);
+    public void add(String database, Long id, Object data){
+       map.get (database).put (id, data);
     }
 
-    public Object find(Long id){
-        return map.get (id);
+    public Object find(String database, Long id){
+        return map.get (database).get (id);
     }
 
-    public int getIncrement(){
-        return map.size ()+1;
+    public Long getIncrement(String database){
+        return Long.valueOf (map.get (database).size ()+1);
     }
 
-    public List<Object> returnAll(){
-        return map.values ().stream ().collect(Collectors.toList());
+    public List<Object> returnAll(String database){
+        return map.get (database).values ().stream ().collect(Collectors.toList());
+    }
+
+    public FileDatabase createDatabase (String tableName){
+        if(map.containsKey (tableName))
+            return instance;
+        Map database = new HashMap ();
+        map.put (tableName, new HashMap<> ());
+        return instance;
     }
 }
